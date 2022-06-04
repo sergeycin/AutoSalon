@@ -1,0 +1,31 @@
+{
+  "name": "lexusspa",
+  "version": "1.0.0",
+  "description": "spa mearn application lexus",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeycin/LexusSPA.git"
+  },
+  "keywords": [
+    "spa",
+    "mern",
+    "fullstack"
+  ],
+  "author": "officialsergey0409@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeycin/LexusSPA/issues"
+  },
+  "homepage": "https://github.com/sergeycin/LexusSPA#readme",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5",
+    "nodemon": "^2.0.16"
+  }
+}
