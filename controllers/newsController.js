@@ -1,9 +1,6 @@
 'use strict'
 
 
-// const response = require('./../response')
-
-
 exports.news = (req,res) =>{
     const data = {
         "status": 200,

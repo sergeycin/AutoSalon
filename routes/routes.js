@@ -4,6 +4,6 @@ module.exports = (app) =>{
     const newsController = require('./../controllers/newsController')
   
 
-    app.route('/').get(newsController.news)
+    app.route('/news').get(newsController.news)
 
 }

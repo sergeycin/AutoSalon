@@ -1,5 +1,5 @@
 {
-    "port": 5000,
+    "port": 8000,
     "jwtSecret": "sergeySPG",
     "mongoUrl": "mongodb+srv://sergey:admin222@cluster0.efu4g4v.mongodb.net/?retryWrites=true&w=majority",
     "baseUrl": "http://localhost:5000"

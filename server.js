@@ -3,13 +3,15 @@ const config = require('config')
 const mongose = require('mongoose')
 const app = express()
 
-const PORT = config.get('port') || 5000
+const PORT = config.get('port') || 8000
 
-// app.listen(PORT, () =>{
-//     console.log(`App listent ${PORT}`)
-// })
 const routes = require('./routes/routes')
 routes(app)
+
+const adminRouter = require('./routes/admin.routes')
+app.use('/admin',adminRouter)
+
+
 
 async function start(){
     try{
