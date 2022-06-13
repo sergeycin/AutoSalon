@@ -1,5 +1,6 @@
 const express = require('express')
 const config = require('config')
+
 const mongose = require('mongoose')
 const app = express()
 
@@ -15,7 +16,7 @@ app.use('/admin',adminRouter)
 
 async function start(){
     try{
-       await mongose.connect(config.get('mongoUrl'),{
+ const mongoDb =  await mongose.connect(config.get('mongoUrl'),{
         useNewUrlParser: true, useUnifiedTopology: true
        })
        app.listen(PORT, () => console.log(`Started ${PORT}`))

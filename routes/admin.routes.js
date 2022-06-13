@@ -1,16 +1,32 @@
 const AdminBro = require('admin-bro')
 const AdminBroExpress = require('admin-bro-expressjs')
 const AdminBroMongoose = require('admin-bro-mongoose')
-
+const News = require('../models/news')
 const mongoose = require('mongoose')
 AdminBro.registerAdapter(AdminBroMongoose)
 
 
 const adminBro = new AdminBro({
-  databases: [],
+  // databases: [],
+  resources: [News],
   rootPath: '/admin',
 })
 
-const router = AdminBroExpress.buildRouter(adminBro)
+const ADMIN = {
+  email: process.env.ADMIN_EMAIL || 'admin@lexus.com',
+  password: process.env.ADMIN_PASSWORD || 'admin222'
+
+}
+
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro,{
+  cookieName: process.env.ADMIN_COOKIE_NAME || 'admin',
+  cookiePassword: process.env.ADMIN_COOKIE_PASS || 'admin222',
+  authenticate: async(email,password) =>{
+    if(email === ADMIN.email && password === ADMIN.password){
+      return ADMIN
+    }
+    return null
+  }
+})
 
 module.exports = router

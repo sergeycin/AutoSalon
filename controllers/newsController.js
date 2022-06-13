@@ -1,11 +1,20 @@
 'use strict'
+const News = require('../models/news')
 
-
-exports.news = (req,res) =>{
+exports.news = async (req,res) =>{
+    const news = await News.find()
     const data = {
         "status": 200,
-        "values": 'Hello its first news'
+        "values": news
     }
-    res.json(data)
-    res.end()
+    try{
+        res.status(200).json(news)
+        res.end()
+    }
+    catch{
+        res.status(500).json('Ошибка')
+    }
+
+    
+    
 }
