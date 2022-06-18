@@ -11,7 +11,7 @@ routes(app)
 
 const adminRouter = require('./routes/admin.routes')
 app.use('/admin',adminRouter)
-
+app.use('/uploads', express.static('uploads'));
 
 
 async function start(){
